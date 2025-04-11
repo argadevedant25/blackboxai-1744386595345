@@ -1,0 +1,19 @@
+/* Custom styles for the Ticket Booking application */
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .seat {
+        width: 10vw;
+        height: 10vw;
+    }
+}
+
+/* Hover effects for seats */
+.seat:hover {
+    background-color: #3b82f6; /* Tailwind's blue-500 */
+}
+
+/* Transition effects for buttons */
+button {
+    transition: background-color 0.3s ease;
+}
