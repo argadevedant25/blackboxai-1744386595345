@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Tickets</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .seat {
+            transition: all 0.3s ease;
+        }
+        .seat:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-xl font-bold text-gray-800">
+                        <i class="fas fa-ticket-alt text-blue-600 mr-2"></i>
+                        TicketBook
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="max-w-6xl mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-center mb-8">Ticket Booking</h1>
+
+        <!-- Booking Summary -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div class="text-center">
+                    <label for="maxBooking" class="block text-sm font-medium text-gray-700 mb-2">Max Bookings (1-7)</label>
+                    <input type="number" id="maxBooking" min="1" max="7" value="7" 
+                           class="w-20 px-3 py-2 border border-gray-300 rounded-md text-center mx-auto block"
+                           onchange="updateMaxBookings(this.value)">
+                </div>
+                <div class="text-center">
+                    <p class="text-lg">
+                        <i class="fas fa-couch text-blue-600 mr-2"></i>
+                        Booked Seats = <span id="bookedCount" class="font-bold">0</span>
+                    </p>
+                </div>
+                <div class="text-center">
+                    <p class="text-lg">
+                        <i class="fas fa-chair text-green-600 mr-2"></i>
+                        Available Seats = <span id="availableCount" class="font-bold">80</span>
+                    </p>
+                </div>
+                <div class="text-center">
+                    <label for="seatNumber" class="block text-sm font-medium text-gray-700 mb-2">Number of Seats:</label>
+                    <input type="number" id="seatNumber" min="1" max="7" 
+                           class="w-24 px-3 py-2 border border-gray-300 rounded-md text-center mx-auto block"
+                           placeholder="1-7 seats">
+                </div>
+            </div>
+        </div>
+
+        <!-- Seat Legend -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <div class="flex justify-center space-x-8">
+                <div class="flex items-center">
+                    <div class="w-6 h-6 bg-gray-200 rounded mr-2"></div>
+                    <span>Available</span>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-6 h-6 bg-gray-600 rounded mr-2"></div>
+                    <span>Booked</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seats Grid -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <div class="grid grid-cols-8 md:grid-cols-10 gap-3" id="seatsGrid">
+                <!-- Seats will be dynamically generated here by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex justify-center space-x-4">
+            <button id="bookButton" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300">
+                <i class="fas fa-check-circle mr-2"></i>
+                Book Seats
+            </button>
+            <button id="resetButton" class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition duration-300">
+                <i class="fas fa-undo mr-2"></i>
+                Reset Booking
+            </button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
